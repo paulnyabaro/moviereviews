@@ -17,7 +17,7 @@
         <h1>{% if searchTerm %}Searching for {{ searchTerm }}{% else %}Welcome to homepage{% endif %}</h1>
 
         <h2>Join our mailing list</h2>
-        <form action="{% url 'sign_up' %}">
+        <form action="{% url 'signup' %}">
             <label for="email" class="form-label">Enter your email</label>
             <input type="email" name="email" id="" class="form-control mb-3">
             <button type="submit" class="btn btn-primary">Sign Up</button>
