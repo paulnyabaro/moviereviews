@@ -15,7 +15,13 @@
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
         <h1>{% if searchTerm %}Searching for {{ searchTerm }}{% else %}Welcome to homepage{% endif %}</h1>
-        <p>This is the homepage of movie review website</p>
+
+        <h2>Join our mailing list</h2>
+        <form action="{% url 'sign_up' %}">
+            <label for="email" class="form-label">Enter your email</label>
+            <input type="email" name="email" id="" class="form-control mb-3">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
