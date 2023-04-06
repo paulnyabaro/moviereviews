@@ -16,7 +16,7 @@
         </form>
         <h1>{% if searchTerm %}Searching for {{ searchTerm }}{% else %}Welcome to homepage{% endif %}</h1>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-5 py-4 g-4">
             {% for movie in movies %}
             <div v-for="movie in movies" class="col">
                 <div class="card">
