@@ -15,7 +15,11 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <form class="d-flex ms-auto">
+                <input class="form-control me-2" name="searchMovie" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
               </li>
@@ -40,19 +44,12 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            
           </div>
         </div>
       </nav>
     <div class="container">
-        <form action="">
-            <label class="form-label" for="movieSearch">Search for movie</label>
-            <input type="search" name="searchMovie" id="movieSearch" class="form-control mb-3">
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
+        
         <h1>{% if searchTerm %}Searching for {{ searchTerm }}{% else %}Welcome to homepage{% endif %}</h1>
 
         <div class="row row-cols-1 row-cols-md-5 py-4 g-4">
