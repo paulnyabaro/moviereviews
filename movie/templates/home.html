@@ -8,7 +8,9 @@
             <div class="card">
                 <img src="{{ movie.image.url }}" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">{{ movie.title }}</h5>
+                    <h5 class="card-title fw-bold">
+                        <a href="{% url 'detail' movie.id %}">{{ movie.title }}</a>
+                    </h5>
                     <p class="cart-text">{{ movie.description }}</p>
                     {% if movie.url %}
                     <a href="{{ movie.url }}" class="btn btn-primary w-100">Movie Link</a>
