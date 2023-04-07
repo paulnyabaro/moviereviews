@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+{% block content %}    
+    <h1>{{ movie.title }}</h1>
+
+    <div class="row row-cols-1 row-cols-md-5 py-4 g-4">
+        <div class="card">
+            <img src="{{ movie.image.url }}" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">{{ movie.title }}</h5>
+                <p class="cart-text">{{ movie.description }}</p>
+                {% if movie.url %}
+                <a href="{{ movie.url }}" class="btn btn-primary w-100">Movie Link</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
