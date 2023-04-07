@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.shortcuts import redirect
+from django.db import IntegrityError
 
 
 def signup(request):
@@ -11,12 +12,17 @@ def signup(request):
     
     else:
         if request.POST['password1'] == request.POST['password2']:
-            user = User.objects.create_user(request.POST['username'],
-                                            password=request.POST['password1'])
-            user.save()
-            login(request, user)
-            return redirect('home')
+            try:
+                user = User.objects.create_user(request.POST['username'],
+                                                password=request.POST['password1'])
+                user.save()
+                login(request, user)
+                return redirect('home')
         
+            except IntegrityError:
+                return render(request, 'signup-account.html', {'form': UserCreationForm, 'error': 'Username already taken. Choose new one.'})
+
+
         else:
             return render(request, 'signup-account.html', {'form': UserCreationForm, 'error': 'Password do not match'})
 
