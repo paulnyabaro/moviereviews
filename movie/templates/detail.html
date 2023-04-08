@@ -1,7 +1,5 @@
 {% extends '_base.html' %}
-{% block content %}    
-    <h1>{{ movie.title }}</h1>
-
+{% block content %}
     <div class="py-4">
         <div class="card">
             <div class="row">
@@ -10,7 +8,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="card-body">
-                        <h2 class="card-title fw-bold">{{ movie.title }}</h2>
+                        <h1 class="card-title fw-bold">{{ movie.title }}</h2>
                         <p class="cart-text">{{ movie.description }}</p>
                         {% if movie.url %}
                         <a href="{{ movie.url }}" class="btn btn-primary me-2">Movie Link</a>
