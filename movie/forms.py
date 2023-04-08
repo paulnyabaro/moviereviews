@@ -3,7 +3,7 @@ from .models import Review
 
 
 class ReviewForm(ModelForm):
-    def __inti__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(ModelForm, self).__init__(*args, **kwargs)
         self.fields['text'].widget.attrs.update({'class': 'form-control'})
         self.fields['watchAgain'].widget.attrs.update({'class': 'form-check-input'})
