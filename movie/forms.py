@@ -15,5 +15,5 @@ class ReviewForm(ModelForm):
                 'watchAgain': ('Watch Again')
             }   
             widgets = {
-                'text': Textarea(attrs={'rows':4})
+                'text': Textarea(attrs={'rows':4}),
             }
