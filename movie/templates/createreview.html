@@ -8,12 +8,12 @@
                 <div class="alert alert-danger" role="alert">
                     {{ error }}
                 </div>
+                {% endif %}
                 <form action="" method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit">Add Review</button>
                 </form>
-                {% endif %}
             </div>
         </div>
     </div>
