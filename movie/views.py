@@ -54,4 +54,4 @@ def update_review(request, review_id):
             form.save()
             return redirect('detail', review.movie.id)
         except ValueError:
-            return render(request, 'updatereview.html')
+            return render(request, 'updatereview.html', {'review': review, 'form': form, 'error': 'Bad data in form'})
