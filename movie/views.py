@@ -44,4 +44,14 @@ def create_review(request, movie_id):
 
 
 def update_review(request, review_id):
-    pass
+    review = get_object_or_404(Review, pk=review_id, user=request.user)
+    if request.method == 'GET':
+        form = ReviewForm(isinstance=review)
+        return render(request, 'update_review.html', {'review':review, 'form': form})
+    else:
+        try:
+            form = ReviewForm(request.POST, isinstance=review)
+            form.save()
+            return redirect('detail', review.movie.id)
+        except ValueError:
+            return render(request, 'update_review.html')
