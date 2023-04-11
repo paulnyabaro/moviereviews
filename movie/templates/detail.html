@@ -23,7 +23,7 @@
                         <h4>Reviews</h4>
                         {% for review in reviews %}
                         <li class="list-group-item p-3">
-                            <h5 class="card-title">Review by {{ review.user.username }}</h5>
+                            <p class="card-title fw-bold">Review by {{ review.user.username }}</p>
                             <p class="small text-muted">{{ review.date }}</p>
                             <p class="card-text">{{ review.text }}</p>
                             {% if user.is_authenticated and user == review.user %}
