@@ -40,14 +40,14 @@ def create_review(request, movie_id):
             return redirect('detail', newReview.movie.id)
 
         except ValueError:
-            return render(request, 'createreview.html', {'form': ReviewForm(), 'error': 'bad data passed in'})
+            return render(request, 'create_review.html', {'form': ReviewForm(), 'error': 'bad data passed in'})
 
 
 def update_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id, user=request.user)
     if request.method == 'GET':
         form = ReviewForm(isinstance=review)
-        return render(request, 'updatereview.html', {'review':review, 'form': form})
+        return render(request, 'update_review.html', {'review':review, 'form': form})
     else:
         try:
             form = ReviewForm(request.POST, isinstance=review)
