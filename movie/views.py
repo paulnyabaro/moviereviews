@@ -28,7 +28,7 @@ def detail(request, movie_id):
 def create_review(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     if request.method == 'GET':
-        return render(request, 'createreview.html', {'form': ReviewForm(), 'movie': movie})
+        return render(request, 'create_review.html', {'form': ReviewForm(), 'movie': movie})
     
     else:
         try:
@@ -54,4 +54,4 @@ def update_review(request, review_id):
             form.save()
             return redirect('detail', review.movie.id)
         except ValueError:
-            return render(request, 'updatereview.html', {'review': review, 'form': form, 'error': 'Bad data in form'})
+            return render(request, 'update_review.html', {'review': review, 'form': form, 'error': 'Bad data in form'})
