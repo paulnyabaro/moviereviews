@@ -41,3 +41,7 @@ def create_review(request, movie_id):
 
         except ValueError:
             return render(request, 'createreview.html', {'form': ReviewForm(), 'error': 'bad data passed in'})
+
+
+def update_review(request, review_id):
+    pass
