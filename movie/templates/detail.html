@@ -27,7 +27,7 @@
                             <p class="small text-muted">{{ review.date }}</p>
                             <p class="card-text">{{ review.text }}</p>
                             {% if user.is_authenticated and user == review.user %}
-                                <a href="" class="btn badge btn-primary me-2">Update</a>
+                                <a href="{% url 'update_review' review.id %}" class="btn badge btn-primary me-2">Update</a>
                                 <a href="" class="btn badge btn-danger">Delete</a>
                             {% endif %}
                         </li>
