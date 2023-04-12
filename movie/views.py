@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect
 from .models import Movie, Review
 from .forms import ReviewForm
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -25,6 +26,7 @@ def detail(request, movie_id):
     reviews = Review.objects.filter(movie = movie)
     return render(request, 'detail.html', {'movie': movie, 'reviews': reviews})
 
+@login_required
 def create_review(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     if request.method == 'GET':
@@ -43,6 +45,7 @@ def create_review(request, movie_id):
             return render(request, 'create_review.html', {'form': ReviewForm(), 'error': 'bad data passed in'})
 
 
+@login_required
 def update_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id, user=request.user)
     if request.method == 'GET':
@@ -57,6 +60,7 @@ def update_review(request, review_id):
             return render(request, 'update_review.html', {'review': review, 'form': form, 'error': 'Bad data in form'})
         
 
+@login_required
 def delete_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id, user=request.user)
     review.delete()
